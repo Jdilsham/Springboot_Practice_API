@@ -1,12 +1,27 @@
 package com.practice.api.Student;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Student {
+    @Id
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName= "student_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
     private Long id;
     private String name;
     private String email;
     private LocalDate dateOfBirth;
+    @Transient
     private int age;
 
     public Student() {
@@ -18,11 +33,9 @@ public class Student {
         this.dateOfBirth = dateOfBirth;
         this.name = name;
         this.email = email;
-        this.age = age;
     }
 
     public Student(int age, LocalDate dateOfBirth, String email, String name) {
-        this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.name = name;
