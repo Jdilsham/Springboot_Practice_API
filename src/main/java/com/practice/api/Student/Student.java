@@ -28,17 +28,18 @@ public class Student {
 
     }
 
-    public Student(Long id, LocalDate dateOfBirth, String name, String email, int age) {
+    public Student(Long id, String name, String email, LocalDate dateOfBirth) {
         this.id = id;
-        this.dateOfBirth = dateOfBirth;
         this.name = name;
         this.email = email;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public Student(int age, LocalDate dateOfBirth, String email, String name) {
-        this.dateOfBirth = dateOfBirth;
-        this.email = email;
+    public Student(String name, String email,LocalDate dateOfBirth) {
+
         this.name = name;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Long getId() {
