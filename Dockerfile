@@ -1,5 +1,5 @@
 #Use maven to build the jar
-FROM maven:3.5.7-eclipse-temurin-21 AS build
+FROM maven:3.9-eclipse-temurin-21 AS build
 
 #Create a folder inside the container called /app
 WORKDIR /app
