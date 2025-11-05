@@ -1,8 +1,10 @@
 package com.practice.api.Student;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.beans.Transient;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,5 +36,23 @@ public class StudentService {
             throw new IllegalStateException("Student does not exist");
         }
         studentRepository.deleteById(studentId);
+    }
+
+    @Transactional
+    public void updateStudent(Long studentId, String name, String email) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalStateException("student not found"));
+
+        if (name != null && !name.isEmpty() && !name.equals(student.getName())) {
+            student.setName(name);
+        }
+
+        if (email != null && !email.isEmpty() && !email.equals(student.getEmail())) {
+            Optional<Student> studentOptional = studentRepository.findByEmail(email);
+            if (studentOptional.isPresent()) {
+                throw new IllegalStateException("email taken");
+            }
+            student.setEmail(email);
+        }
     }
 }
