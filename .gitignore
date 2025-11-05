@@ -1,0 +1,44 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Logs
+*.log
+logs/
+*.out
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+
+# Dependencies folder (if any)
+dependency-reduced-pom.xml
+
+# Environment / Secrets
+application-local.properties
+.env
+*.env
+
+# JAR/WAR builds
+*.jar
+*.war
+*.ear
+
+# Backup / Temp files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
