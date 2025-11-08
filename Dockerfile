@@ -19,7 +19,7 @@ RUN mvn package -DskipTests
 #Start a new lightweight image with Java 21
 FROM eclipse-temurin:21-jdk
 
-WORKDIR /app
+
 
 #Copy the built JAR from the build stage into this container
 COPY --from=build /app/target/*.jar app.jar
