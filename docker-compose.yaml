@@ -36,4 +36,4 @@ volumes:
   postgres_data:
 
 networks:
-  spring-net
+  spring-net:
